@@ -1,4 +1,5 @@
-const axios=require('axios')
+const axios=require('axios');
+const res = require('express/lib/response');
 const jsdom=require('jsdom')
 const ProductoSchema=require('../models/producto')
 const { JSDOM } = jsdom;
@@ -15,7 +16,9 @@ const getProducto=async(req,res)=>{
 
 const postProducto=async(req,res)=>{
 const {url,precio}=req.body
+
 const productoData =await axios.get(url)
+
 const prodId=url.slice(url.indexOf('-p-'),url.indexOf('-cat-')).replace('-p-','')
 console.log(prodId)
 const data=productoData.data
