@@ -17,7 +17,7 @@ const getProducto=async(req,res)=>{
 const postProducto=async(req,res)=>{
 const {url,precio}=req.body
 
-const productoData =await axios.get(url)
+const productoData =await axios.get(url,{'proxy':{'host':'151.106.18.125','port':'1080'}})
 
 const prodId=url.slice(url.indexOf('-p-'),url.indexOf('-cat-')).replace('-p-','')
 console.log(prodId)
